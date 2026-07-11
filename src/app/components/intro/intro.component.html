@@ -1,0 +1,33 @@
+<div class="intro-container">
+  <div class="intro-bg">
+    <div class="particle" *ngFor="let p of [1,2,3,4,5,6,7,8]" [style.--i]="p"></div>
+  </div>
+
+  <div class="intro-content" [class.visible]="showContent">
+    <div class="intro-icon">💡</div>
+    <h1 class="intro-title">
+      <span class="title-line">Galería de</span>
+      <span class="title-line highlight">Innovaciones Didácticas</span>
+    </h1>
+    <p class="intro-subtitle">IND169 — Actividad 2</p>
+    <p class="intro-description">
+      Tres experiencias reales de innovación educativa<br>
+      que están transformando la enseñanza en Colombia y el mundo
+    </p>
+
+    <div class="intro-badges">
+      <span class="badge">🇨🇴 Colombia</span>
+      <span class="badge">🌎 Internacional</span>
+      <span class="badge">📚 Educación</span>
+    </div>
+
+    <button class="intro-btn" (click)="onEnter()">
+      <span class="btn-text">Explorar Galería</span>
+      <span class="btn-arrow">→</span>
+    </button>
+  </div>
+
+  <div class="intro-footer">
+    <span class="footer-text">Universidad de Cartagena — Julio 2026</span>
+  </div>
+</div>

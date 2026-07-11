@@ -1,0 +1,101 @@
+<div class="gallery-page" [class.visible]="isVisible">
+  <header class="gallery-header">
+    <div class="header-content">
+      <div class="header-badge">IND169 · Actividad 2</div>
+      <h1 class="header-title">Galería de Innovaciones Didácticas</h1>
+      <p class="header-subtitle">
+        Experiencias reales de innovación educativa analizadas desde una mirada pedagógica
+      </p>
+      <div class="header-stats">
+        <div class="stat">
+          <span class="stat-value">{{ experiences.length }}</span>
+          <span class="stat-label">Experiencias</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">{{ getUniqueCountries() }}</span>
+          <span class="stat-label">Países</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">{{ getUniqueMethods() }}</span>
+          <span class="stat-label">Metodologías</span>
+        </div>
+      </div>
+    </div>
+    <div class="header-wave">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" fill="var(--bg-primary)"/>
+      </svg>
+    </div>
+  </header>
+
+  <main class="gallery-main">
+    <div class="gallery-grid">
+      <app-gallery-card
+        *ngFor="let exp of experiences; let i = index"
+        [experience]="exp"
+        [index]="i"
+        (viewDetail)="onViewDetail($event)">
+      </app-gallery-card>
+    </div>
+  </main>
+
+  <div class="modal-overlay" *ngIf="showModal" (click)="onCloseModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()" [class.active]="showModal">
+      <button class="modal-close" (click)="onCloseModal()">×</button>
+
+      <div class="modal-header" *ngIf="selectedExperience">
+        <span class="modal-icon">{{ selectedExperience.icon }}</span>
+        <h2 class="modal-title">{{ selectedExperience.title }}</h2>
+        <div class="modal-tags">
+          <span class="modal-tag">{{ selectedExperience.methodology }}</span>
+          <span class="modal-tag">{{ selectedExperience.scope }}</span>
+        </div>
+      </div>
+
+      <div class="modal-body" *ngIf="selectedExperience">
+        <section class="modal-section">
+          <h3>📝 Descripción</h3>
+          <p>{{ selectedExperience.fullDescription }}</p>
+        </section>
+
+        <section class="modal-section">
+          <h3>📊 Resultados</h3>
+          <ul>
+            <li *ngFor="let r of selectedExperience.results">{{ r }}</li>
+          </ul>
+        </section>
+
+        <section class="modal-section">
+          <h3>🔑 Claves del éxito</h3>
+          <ul>
+            <li *ngFor="let k of selectedExperience.keySuccess">{{ k }}</li>
+          </ul>
+        </section>
+
+        <section class="modal-section info-grid">
+          <div class="info-item">
+            <span class="info-label">Institución</span>
+            <span class="info-value">{{ selectedExperience.institution }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Origen</span>
+            <span class="info-value">{{ selectedExperience.origin }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Período</span>
+            <span class="info-value">{{ selectedExperience.year }}</span>
+          </div>
+        </section>
+
+        <section class="modal-section">
+          <h3>📖 Referencia</h3>
+          <p class="reference">{{ selectedExperience.reference }}</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <footer class="gallery-footer">
+    <p>Universidad de Cartagena — IND169 · Actividad 2: Galería de Innovaciones Didácticas — Julio 2026</p>
+  </footer>
+</div>
