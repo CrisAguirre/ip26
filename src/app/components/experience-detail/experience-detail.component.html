@@ -1,0 +1,98 @@
+<div class="gallery-page" [class.visible]="isVisible"
+     [class.theme-space]="experience.theme === 'space'"
+     [class.theme-puzzle]="experience.theme === 'puzzle'"
+     [class.theme-game]="experience.theme === 'game'"
+     [style.--accent]="experience.color"
+     [style.--accent-sec]="experience.colorSecondary">
+
+  <!-- ===== HEADER DE GALERÍA ===== -->
+  <header class="gal-header">
+    <button class="gal-back" (click)="goBack()">← Galería principal</button>
+    <div class="gal-header-content">
+      <span class="gal-icon">{{ experience.icon }}</span>
+      <h1 class="gal-title">{{ experience.title }}</h1>
+      <p class="gal-meta">{{ experience.methodology }} · {{ experience.scope }}</p>
+      <p class="gal-count">{{ pieces.length }} piezas en la galería</p>
+    </div>
+    <div class="gal-ambient">
+      <span class="ambient-glow"></span>
+    </div>
+  </header>
+
+  <!-- ===== GALERÍA DE PIEZAS ===== -->
+  <main class="gal-body">
+    <div class="gal-grid">
+      <article class="gal-piece" *ngFor="let piece of pieces; let i = index"
+               [style.--i]="i"
+               [style.--piece-color]="getPieceColor(i)"
+               (click)="openPiece(piece, i)">
+        <div class="gp-media">
+          <span class="gp-icon">{{ piece.icon }}</span>
+          <div class="gp-number">{{ i + 1 }}</div>
+        </div>
+        <div class="gp-body">
+          <h2 class="gp-title">{{ piece.title }}</h2>
+          <p class="gp-subtitle">{{ piece.subtitle }}</p>
+          <p class="gp-preview">{{ piece.content | slice:0:120 }}...</p>
+          <div class="gp-tags" *ngIf="piece.highlights">
+            <span class="gp-tag" *ngFor="let h of piece.highlights | slice:0:3">{{ h }}</span>
+          </div>
+        </div>
+        <div class="gp-hover-glow"></div>
+      </article>
+    </div>
+  </main>
+
+  <!-- ===== VISOR INMERSIVO ===== -->
+  <div class="gal-viewer" *ngIf="showViewer && selectedPiece"
+       [class.active]="showViewer"
+       [class.enter-next]="enterDir === 'next'"
+       [class.enter-prev]="enterDir === 'prev'">
+
+    <div class="viewer-backdrop" (click)="closeViewer()"></div>
+
+    <div class="viewer-stage">
+      <button class="viewer-close" (click)="closeViewer()">✕</button>
+
+      <div class="viewer-counter">{{ currentIndex + 1 }} / {{ pieces.length }}</div>
+
+      <div class="viewer-article" #viewerArticle>
+        <div class="va-header">
+          <span class="va-icon">{{ selectedPiece.icon }}</span>
+          <div>
+            <span class="va-suptitle">Pieza {{ currentIndex + 1 }} de la galería</span>
+            <h2 class="va-title">{{ selectedPiece.title }}</h2>
+            <p class="va-subtitle">{{ selectedPiece.subtitle }}</p>
+          </div>
+        </div>
+
+        <div class="va-content">
+          <p>{{ selectedPiece.content }}</p>
+        </div>
+
+        <div class="va-tags" *ngIf="selectedPiece.highlights">
+          <h3>Palabras clave</h3>
+          <div class="va-tag-list">
+            <span class="va-tag" *ngFor="let h of selectedPiece.highlights">{{ h }}</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="viewer-nav">
+        <button class="vn-btn vn-prev" (click)="prevPiece()"
+                [class.disabled]="currentIndex === 0">
+          <span>←</span> Anterior
+        </button>
+        <button class="vn-btn vn-next" (click)="nextPiece()"
+                [class.disabled]="currentIndex === pieces.length - 1">
+          Siguiente <span>→</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="gal-footer">
+    <p>Universidad de Cartagena — IND169 · Actividad 2: Galería de Innovaciones Didácticas · Julio 2026</p>
+  </footer>
+</div>

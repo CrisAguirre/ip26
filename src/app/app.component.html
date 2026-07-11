@@ -1,2 +1,2 @@
 <app-intro *ngIf="showIntro" (enter)="onEnter()"></app-intro>
-<app-gallery *ngIf="!showIntro"></app-gallery>
+<router-outlet *ngIf="!showIntro"></router-outlet>

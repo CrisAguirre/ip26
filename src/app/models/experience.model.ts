@@ -12,5 +12,8 @@ export interface Experience {
   year: string;
   reference: string;
   color: string;
+  colorSecondary: string;
   icon: string;
+  theme: 'space' | 'puzzle' | 'game';
+  gradient: string;
 }

@@ -28,7 +28,10 @@ export class GalleryService {
       year: '2023 - 2025',
       reference: 'Canal Trece. (2025). Colombia exporta metodología educativa innovadora a seis países.',
       color: '#6366f1',
-      icon: '🚀'
+      colorSecondary: '#a855f7',
+      icon: '🚀',
+      theme: 'space',
+      gradient: 'linear-gradient(145deg, #1e1b4b, #312e81)'
     },
     {
       id: 2,
@@ -39,7 +42,7 @@ export class GalleryService {
       summary: 'Juego analógico diseñado para fomentar el pensamiento computacional en zonas rurales de Colombia. Ganó el premio Mejor Uso General de Gamificación en los GamiCon48V (Estados Unidos), la competencia internacional más prestigiosa en aprendizaje basado en el juego.',
       fullDescription: 'Biobots es una estrategia de la iniciativa Colombia Programa del Ministerio TIC y el British Council. Fue diseñado para funcionar sin conexión a internet, permitiendo su implementación en entornos con acceso limitado a tecnología. Su metodología innovadora, basada en la resolución de problemas y el aprendizaje activo, ha demostrado mejoras significativas en habilidades como lateralidad, razonamiento lógico y adquisición de lenguaje desde las primeras sesiones de juego.',
       results: [
-        'Premio Mejor Uso General de Gamificación (Best Overall Use of Gamification) — GamiCon48V',
+        'Premio Mejor Uso General de Gamificación — GamiCon48V (USA)',
         'Premio del público: Mejor Uso de Gamificación con Baja Tecnología',
         'Beneficiando a 700 docentes y 14.000 estudiantes en zonas rurales',
         '150 docentes del Pacífico colombiano formados en 2025'
@@ -54,14 +57,17 @@ export class GalleryService {
       year: '2024 - 2025',
       reference: 'Ministerio TIC. (2025). Biobots recibió dos premios en Estados Unidos.',
       color: '#f59e0b',
-      icon: '🧩'
+      colorSecondary: '#ef4444',
+      icon: '🧩',
+      theme: 'puzzle',
+      gradient: 'linear-gradient(145deg, #1c1917, #292524)'
     },
     {
       id: 3,
       title: 'Eutopía',
       origin: 'España (Valencia)',
       scope: 'Nacional (expansión internacional)',
-      methodology: 'Gamificación + ABP + Evaluación competencial',
+      methodology: 'Gamificación + ABP',
       summary: 'Videojuego educativo desarrollado por la startup valenciana Zynergic que transforma la evaluación competencial en un proceso automático, objetivo y motivador. Presente en más de 40 colegios en España con un crecimiento del 300% en el último año.',
       fullDescription: 'Eutopía permite a los estudiantes construir y gestionar su propia aldea virtual mientras el sistema recoge más de mil datos por hora de cada estudiante, generando informes alineados con el currículo oficial. La plataforma combina aprendizaje y evaluación en un mismo proceso, fomentando la motivación y liberando a los docentes de hasta 15 horas semanales de carga burocrática relacionada con la evaluación.',
       results: [
@@ -80,7 +86,10 @@ export class GalleryService {
       year: '2022 - 2025',
       reference: 'Magisnet. (2025). Eutopía: el videojuego educativo que arrasa en más de 40 colegios de España.',
       color: '#10b981',
-      icon: '🎮'
+      colorSecondary: '#3b82f6',
+      icon: '🎮',
+      theme: 'game',
+      gradient: 'linear-gradient(145deg, #022c22, #064e3b)'
     }
   ];
 

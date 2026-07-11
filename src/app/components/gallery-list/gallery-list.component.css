@@ -1,0 +1,193 @@
+.gallery-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.gallery-page.visible { opacity: 1; }
+
+.gallery-header {
+  position: relative;
+  padding: 5rem 2rem 7rem;
+  background: linear-gradient(135deg, #0f0c29 0%, #1e1b4b 50%, #312e81 100%);
+  overflow: hidden;
+  text-align: center;
+}
+
+.header-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 40%, rgba(99, 102, 241, 0.2), transparent 50%),
+    radial-gradient(ellipse at 80% 60%, rgba(168, 85, 247, 0.12), transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(236, 72, 153, 0.08), transparent 50%);
+  animation: header-pulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes header-pulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: fade-in 0.8s ease-out both;
+  backdrop-filter: blur(4px);
+}
+
+.header-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  animation: slide-up 0.8s ease-out 0.15s both;
+  background: linear-gradient(135deg, #f1f5f9 0%, #a5b4fc 50%, #f1f5f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-subtitle {
+  font-size: 1.05rem;
+  color: rgba(148, 163, 184, 0.8);
+  line-height: 1.6;
+  margin: 0 0 2.5rem;
+  animation: slide-up 0.8s ease-out 0.3s both;
+}
+
+.header-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3.5rem;
+  animation: slide-up 0.8s ease-out 0.45s both;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.stat::after {
+  content: '';
+  position: absolute;
+  right: -1.75rem;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.stat:last-child::after { display: none; }
+
+.stat-value {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: rgba(100, 116, 139, 0.7);
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.header-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+.header-wave svg { width: 100%; height: 100px; }
+
+.gallery-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+.section-intro {
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(148, 163, 184, 0.5);
+  margin: 1.5rem 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.gallery-footer p {
+  font-size: 0.78rem;
+  color: rgba(71, 85, 105, 0.6);
+  margin: 0;
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .header-title { font-size: 2.2rem; }
+}
+
+@media (max-width: 768px) {
+  .header-stats { gap: 2rem; }
+  .stat::after { right: -1rem; }
+}
+
+@media (max-width: 640px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .header-title { font-size: 1.8rem; }
+  .header-stats { gap: 1.5rem; }
+  .stat-value { font-size: 1.8rem; }
+}

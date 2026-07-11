@@ -1,25 +1,57 @@
-<div class="card-wrapper" id="card-{{ experience.id }}" [class.visible]="isVisible">
-  <div class="card-inner">
-    <div class="card-front" [style.--card-color]="experience.color">
+<div class="card-wrapper" id="card-{{ experience.id }}"
+     [class.visible]="isVisible"
+     [class.theme-space]="experience.theme === 'space'"
+     [class.theme-puzzle]="experience.theme === 'puzzle'"
+     [class.theme-game]="experience.theme === 'game'"
+     (mousemove)="onMouseMove($event)"
+     (mouseenter)="onMouseEnter()"
+     (mouseleave)="onMouseLeave()"
+     (click)="navigate()">
+
+  <div class="card-inner"
+       [style.transform]="isHovering ? 'rotateY(' + (mouseX * 10) + 'deg) rotateX(' + (-mouseY * 10) + 'deg)' : ''">
+
+    <div class="card-front" [style.--card-color]="experience.color" [style.--card-grad]="experience.gradient">
+
+      <div class="theme-bg">
+        <div class="star" *ngFor="let s of stars" [style.--s]="s"></div>
+        <div class="orbit-ring" *ngFor="let r of [1,2,3]" [style.--r]="r"></div>
+        <div class="dot" *ngFor="let d of dots" [style.--d]="d"></div>
+        <div class="grid-line" *ngFor="let g of [1,2,3,4]"></div>
+        <div class="pixel" *ngFor="let p of pixels" [style.--p]="p"></div>
+        <div class="scanline"></div>
+      </div>
+
+      <div class="card-glow" [style.--card-color]="experience.color"></div>
+      <div class="card-badge">{{ experience.methodology }}</div>
       <div class="card-icon">{{ experience.icon }}</div>
       <h3 class="card-title">{{ experience.title }}</h3>
-      <div class="card-tags">
-        <span class="tag tag-origin">{{ experience.origin }}</span>
-        <span class="tag tag-method">{{ experience.methodology }}</span>
+
+      <div class="card-origin">
+        <span class="origin-dot" [style.background]="experience.color"></span>
+        {{ experience.origin }}
       </div>
+
       <p class="card-summary">{{ experience.summary }}</p>
-      <div class="card-footer-info">
+
+      <div class="card-footer">
         <span class="card-scope">{{ experience.scope }}</span>
-        <span class="card-year">{{ experience.year }}</span>
+        <span class="card-hint">Explorar →</span>
       </div>
     </div>
 
-    <div class="card-back" [style.--card-color]="experience.color">
-      <h4 class="back-title">Resultados destacados</h4>
+    <div class="card-back" [style.--card-color]="experience.color" [style.--card-grad]="experience.gradient">
+      <div class="back-glow" [style.--card-color]="experience.color"></div>
+      <h4 class="back-title">✦ Resultados destacados</h4>
       <ul class="back-list">
-        <li *ngFor="let r of experience.results">{{ r }}</li>
+        <li *ngFor="let r of experience.results">
+          <span class="li-icon">✦</span>
+          <span>{{ r }}</span>
+        </li>
       </ul>
-      <button class="detail-btn" (click)="onViewDetail()">Ver detalle completo →</button>
+      <div class="back-cta">
+        <span>Ver galería completa →</span>
+      </div>
     </div>
   </div>
 </div>
