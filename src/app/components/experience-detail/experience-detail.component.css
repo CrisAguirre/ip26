@@ -323,14 +323,55 @@
 .gal-footer p { font-size: 0.7rem; color: rgba(71,85,105,0.4); margin: 0; }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .gal-header { padding: 3.5rem 1.5rem 5rem; }
+  .gal-icon { font-size: 3rem; }
+  .gal-grid { gap: 1rem; }
+}
+
 @media (max-width: 768px) {
   .gal-grid { grid-template-columns: repeat(2, 1fr); }
   .gal-title { font-size: 2.2rem; }
+  .gal-header { padding: 3rem 1.5rem 4.5rem; }
+  .gal-back { top: 1rem; left: 1rem; font-size: 0.65rem; padding: 0.3rem 0.8rem; }
+  .gal-icon { font-size: 2.8rem; }
+  .gal-meta { font-size: 0.75rem; }
+  .viewer-stage { margin: 1rem; }
+  .viewer-article { padding: 1.5rem; }
+  .va-title { font-size: 1.3rem; }
+  .va-icon { width: 56px; height: 56px; font-size: 2.2rem; }
 }
+
 @media (max-width: 640px) {
-  .gal-grid { grid-template-columns: 1fr; }
-  .gal-title { font-size: 1.8rem; }
-  .viewer-article { padding: 1.2rem; }
-  .va-header { flex-direction: column; text-align: center; }
-  .viewer-nav { flex-direction: column; }
+  .gal-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+  .gal-title { font-size: 1.6rem; }
+  .gal-header { padding: 2.5rem 1rem 3.5rem; }
+  .gal-body { padding: 0 1rem 3rem; margin-top: -2rem; }
+  .gal-back { top: 0.75rem; left: 0.75rem; font-size: 0.6rem; padding: 0.25rem 0.7rem; }
+  .gal-icon { font-size: 2.2rem; margin-bottom: 0.4rem; }
+  .gal-meta { font-size: 0.68rem; }
+  .gal-count { font-size: 0.6rem; padding: 0.2rem 0.7rem; }
+  .gal-footer { padding: 1.5rem 1rem; }
+  .gal-footer p { font-size: 0.6rem; }
+  .ambient-glow { width: 300px; height: 300px; }
+  .gp-media { height: 90px; }
+  .gp-icon { font-size: 2.2rem; }
+  .gp-body { padding: 0.9rem; }
+  .gp-title { font-size: 0.85rem; }
+  .gp-subtitle { font-size: 0.65rem; }
+  .gp-preview { font-size: 0.7rem; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+  .gp-tag { font-size: 0.55rem; padding: 0.1rem 0.4rem; }
+  .viewer-stage { margin: 0.5rem; max-height: 90vh; }
+  .viewer-close { top: 0.25rem; right: 0.25rem; width: 32px; height: 32px; font-size: 0.9rem; }
+  .viewer-article { padding: 1rem; max-height: 70vh; border-radius: 16px; }
+  .va-header { flex-direction: column; text-align: center; gap: 0.8rem; }
+  .va-icon { width: 48px; height: 48px; font-size: 1.8rem; }
+  .va-title { font-size: 1.1rem; }
+  .va-subtitle { font-size: 0.75rem; }
+  .va-suptitle { font-size: 0.55rem; }
+  .va-content p { font-size: 0.8rem; line-height: 1.65; }
+  .va-tag { font-size: 0.6rem; padding: 0.2rem 0.6rem; }
+  .viewer-nav { flex-direction: column; gap: 0.5rem; }
+  .vn-btn { padding: 0.65rem 1rem; font-size: 0.75rem; }
+  .viewer-counter { font-size: 0.6rem; }
 }

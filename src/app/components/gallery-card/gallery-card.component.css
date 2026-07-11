@@ -428,8 +428,21 @@
    ======================================== */
 @media (max-width: 1024px) {
   .card-wrapper { height: 420px; }
+  .card-front, .card-back { padding: 1.5rem; }
+  .card-title { font-size: 1.4rem; }
+  .card-icon { font-size: 2.6rem; }
+  .card-summary { font-size: 0.75rem; -webkit-line-clamp: 6; }
 }
 
 @media (max-width: 640px) {
-  .card-wrapper { height: 400px; }
+  .card-wrapper { height: 380px; }
+  .card-front, .card-back { padding: 1.2rem; }
+  .card-title { font-size: 1.2rem; }
+  .card-icon { font-size: 2.2rem; }
+  .card-origin { font-size: 0.65rem; }
+  .card-summary { font-size: 0.7rem; -webkit-line-clamp: 5; }
+  .card-badge { font-size: 0.55rem; padding: 0.2rem 0.7rem; }
+  .back-list li { font-size: 0.7rem; margin-bottom: 0.5rem; }
+  .back-title { font-size: 0.85rem; }
+  .back-cta { padding: 0.6rem 1rem; font-size: 0.75rem; }
 }
