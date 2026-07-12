@@ -40,7 +40,8 @@
       <app-gallery-card
         *ngFor="let exp of experiences; let i = index"
         [experience]="exp"
-        [index]="i">
+        [index]="i"
+        [class.featured]="i === 0">
       </app-gallery-card>
     </div>
   </main>

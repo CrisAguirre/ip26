@@ -51,6 +51,23 @@ export class ExperienceDetailComponent {
     return colors[i % colors.length];
   }
 
+  getContentFigureClass(i: number): string {
+    const title = this.experience?.title || '';
+    if (title === 'InnGenius') {
+      return ['fig-inn-school', 'fig-inn-brain', 'fig-inn-rocket', 'fig-inn-satellite', 'fig-inn-star', 'fig-inn-globe', 'fig-inn-timeline'][i % 7];
+    }
+    if (title === 'Biobots') {
+      return ['fig-bio-house', 'fig-bio-puzzle-brain', 'fig-bio-board', 'fig-bio-pc', 'fig-bio-trophy', 'fig-bio-medal', 'fig-bio-graph'][i % 7];
+    }
+    if (title === 'Eutopía') {
+      return ['fig-eut-school', 'fig-eut-flow', 'fig-eut-village', 'fig-eut-cloud', 'fig-eut-crown', 'fig-eut-levelup', 'fig-eut-chest'][i % 7];
+    }
+    if (title === 'InnGenius — Investigación') {
+      return ['fig-inv-brain-gear', 'fig-inv-diamond', 'fig-inv-cogs', 'fig-inv-loop', 'fig-inv-network', 'fig-inv-system', 'fig-inv-book'][i % 7];
+    }
+    return 'fig-star';
+  }
+
   openPiece(piece: GalleryPiece, index: number) {
     this.currentIndex = index;
     this.selectedPiece = piece;

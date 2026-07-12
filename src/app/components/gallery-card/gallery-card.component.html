@@ -26,18 +26,33 @@
         <div class="comet" *ngFor="let c of comets" [style.--c]="c"></div>
         <div class="orbit-ring" *ngFor="let r of [1,2,3]" [style.--r]="r"></div>
         <div class="nebula" *ngIf="experience.theme === 'space'"></div>
+        <div class="planet" *ngFor="let p of planets" [style.--p]="p"></div>
+        <div class="satellite" *ngFor="let s of satellites" [style.--sat]="s"></div>
+        <div class="constellation" *ngIf="experience.theme === 'space'"><span class="c-star" *ngFor="let cs of [1,2,3,4,5,6]" [style.--cs]="cs"></span></div>
+
         <div class="dot" *ngFor="let d of dots" [style.--d]="d"></div>
         <div class="floater" *ngFor="let f of floaters" [style.--f]="f"></div>
-        <div class="grid-line" *ngFor="let g of [1,2,3,4]"></div>
+        <div class="grid-line" *ngFor="let g of [1,2,3,4,5]"></div>
         <div class="connector" *ngFor="let n of [1,2,3]" [style.--n]="n"></div>
+        <div class="puzzle-piece" *ngFor="let pc of pieces" [style.--pc]="pc"></div>
+        <div class="chain-link" *ngFor="let ch of chains" [style.--ch]="ch"></div>
+
         <div class="pixel" *ngFor="let p of pixels" [style.--p]="p"></div>
         <div class="spark" *ngFor="let s of sparks" [style.--sp]="s"></div>
         <div class="scanline"></div>
         <div class="crt-overlay"></div>
+        <div class="coin" *ngFor="let co of coins" [style.--co]="co"></div>
+        <div class="block" *ngFor="let bl of blocks" [style.--bl]="bl"></div>
+        <div class="life-bar" *ngIf="experience.theme === 'game'">
+          <span class="life-fill"></span>
+        </div>
+
         <div class="gear" *ngFor="let g of gears" [style.--g]="g"></div>
         <div class="gear-tooth" *ngFor="let t of [1,2,3,4,5,6]" [style.--t]="t"></div>
         <div class="energy-line" *ngFor="let e of energy" [style.--e]="e"></div>
-        <div class="energy-node" *ngFor="let n of [1,2,3,4]" [style.--en]="n"></div>
+        <div class="energy-node" *ngFor="let n of nodes" [style.--en]="n"></div>
+        <div class="bulb" *ngFor="let b of bulbs" [style.--b]="b"></div>
+        <div class="network-line" *ngFor="let nl of [1,2,3]" [style.--nl]="nl"></div>
       </div>
 
       <div class="card-glow" [style.--card-color]="experience.color"
@@ -46,16 +61,44 @@
            [style.left]="mousePX * 100 + '%'"
            [style.top]="mousePY * 100 + '%'">
       </div>
+
       <div class="card-badge">{{ experience.methodology }}</div>
       <div class="card-icon">{{ experience.icon }}</div>
       <h3 class="card-title">{{ experience.title }}</h3>
 
-      <div class="card-origin">
-        <span class="origin-dot" [style.background]="experience.color"></span>
-        {{ experience.origin }}
+      <div class="card-figures">
+        <div class="cf-scene">
+          <div class="cf-rocket" *ngIf="experience.theme === 'space'">
+            <div class="rocket-body"><div class="rocket-window"></div></div>
+            <div class="rocket-fin-l"></div><div class="rocket-fin-r"></div>
+            <div class="rocket-flame"></div>
+          </div>
+          <div class="cf-shuttle" *ngIf="experience.theme === 'space'">
+            <div class="shuttle-glow"></div>
+          </div>
+          <div class="cf-puzzle-grid" *ngIf="experience.theme === 'puzzle'">
+            <span class="pg-cell" *ngFor="let pg of [1,2,3,4,5,6,7,8,9]"></span>
+          </div>
+          <div class="cf-trophy" *ngIf="experience.theme === 'game'">
+            <div class="trophy-cup"><div class="trophy-star"></div></div>
+            <div class="trophy-handle-l"></div><div class="trophy-handle-r"></div>
+            <div class="trophy-base"></div>
+          </div>
+          <div class="cf-mechanism" *ngIf="experience.theme === 'gear'">
+            <div class="mech-gear-big"></div>
+            <div class="mech-gear-med"></div>
+            <div class="mech-gear-sml"></div>
+          </div>
+        </div>
       </div>
 
-      <p class="card-summary">{{ experience.summary }}</p>
+      <div class="card-info">
+        <div class="card-origin">
+          <span class="origin-dot" [style.background]="experience.color"></span>
+          {{ experience.origin }}
+        </div>
+        <p class="card-summary">{{ experience.summary }}</p>
+      </div>
 
       <div class="card-footer">
         <span class="card-scope">{{ experience.scope }}</span>
@@ -69,8 +112,12 @@
         <span class="bp" *ngFor="let b of [1,2,3,4,5,6]" [style.--b]="b"></span>
       </div>
       <h4 class="back-title">✦ Resultados destacados</h4>
+      <div class="back-figures">
+        <div class="bf-bar" *ngFor="let bar of [1,2,3,4]" [style.--bf]="bar"
+             [style.--bar-color]="experience.color"></div>
+      </div>
       <ul class="back-list">
-        <li *ngFor="let r of experience.results">
+        <li *ngFor="let r of experience.results | slice:0:3">
           <span class="li-icon">✦</span>
           <span>{{ r }}</span>
         </li>

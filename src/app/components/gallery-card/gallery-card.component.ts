@@ -31,14 +31,25 @@ export class GalleryCardComponent {
     setTimeout(() => observer.observe(document.getElementById('card-' + this.experience.id)!), 0);
   }
 
-  get stars() { return this.experience.theme === 'space' ? [1,2,3,4,5,6,7,8,9,10,11,12] : []; }
-  get comets() { return this.experience.theme === 'space' ? [1,2,3] : []; }
+  get stars() { return this.experience.theme === 'space' ? [1,2,3,4,5,6,7,8,9,10,11,12,13,14] : []; }
+  get comets() { return this.experience.theme === 'space' ? [1,2,3,4] : []; }
+  get planets() { return this.experience.theme === 'space' ? [1,2,3] : []; }
+  get satellites() { return this.experience.theme === 'space' ? [1,2] : []; }
+
   get dots() { return this.experience.theme === 'puzzle' ? [1,2,3,4,5,6,7,8,9,10] : []; }
   get floaters() { return this.experience.theme === 'puzzle' ? [1,2,3,4] : []; }
+  get pieces() { return this.experience.theme === 'puzzle' ? [1,2,3,4,5] : []; }
+  get chains() { return this.experience.theme === 'puzzle' ? [1,2,3,4] : []; }
+
   get pixels() { return this.experience.theme === 'game' ? [1,2,3,4,5,6,7,8,9,10,11,12] : []; }
-  get sparks() { return this.experience.theme === 'game' ? [1,2,3,4,5] : []; }
-  get gears() { return this.experience.theme === 'gear' ? [1,2,3,4,5] : []; }
+  get sparks() { return this.experience.theme === 'game' ? [1,2,3,4,5,6] : []; }
+  get coins() { return this.experience.theme === 'game' ? [1,2,3] : []; }
+  get blocks() { return this.experience.theme === 'game' ? [1,2,3,4,5] : []; }
+
+  get gears() { return this.experience.theme === 'gear' ? [1,2,3,4,5,6] : []; }
   get energy() { return this.experience.theme === 'gear' ? [1,2,3,4,5,6] : []; }
+  get bulbs() { return this.experience.theme === 'gear' ? [1,2,3] : []; }
+  get nodes() { return this.experience.theme === 'gear' ? [1,2,3,4,5,6,7,8] : []; }
 
   get glowTransform(): string {
     if (!this.isHovering) return '';
