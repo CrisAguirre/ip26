@@ -2,10 +2,10 @@
      [class.theme-space]="experience.theme === 'space'"
      [class.theme-puzzle]="experience.theme === 'puzzle'"
      [class.theme-game]="experience.theme === 'game'"
+     [class.theme-gear]="experience.theme === 'gear'"
      [style.--accent]="experience.color"
      [style.--accent-sec]="experience.colorSecondary">
 
-  <!-- ===== HEADER DE GALERÍA ===== -->
   <header class="gal-header">
     <button class="gal-back" (click)="goBack()">← Galería principal</button>
     <div class="gal-header-content">
@@ -16,19 +16,25 @@
     </div>
     <div class="gal-ambient">
       <span class="ambient-glow"></span>
+      <div class="ambient-particles">
+        <span class="ap" *ngFor="let a of [1,2,3,4,5,6,7,8]" [style.--a]="a"></span>
+      </div>
     </div>
   </header>
 
-  <!-- ===== GALERÍA DE PIEZAS ===== -->
   <main class="gal-body">
     <div class="gal-grid">
       <article class="gal-piece" *ngFor="let piece of pieces; let i = index"
                [style.--i]="i"
                [style.--piece-color]="getPieceColor(i)"
                (click)="openPiece(piece, i)">
+        <div class="gp-border-glow"></div>
         <div class="gp-media">
           <span class="gp-icon">{{ piece.icon }}</span>
           <div class="gp-number">{{ i + 1 }}</div>
+          <div class="gp-media-particles">
+            <span class="gpp" *ngFor="let p of [1,2,3,4]" [style.--gp]="p"></span>
+          </div>
         </div>
         <div class="gp-body">
           <h2 class="gp-title">{{ piece.title }}</h2>
@@ -39,11 +45,11 @@
           </div>
         </div>
         <div class="gp-hover-glow"></div>
+        <div class="gp-mouse-glow"></div>
       </article>
     </div>
   </main>
 
-  <!-- ===== VISOR INMERSIVO ===== -->
   <div class="gal-viewer" *ngIf="showViewer && selectedPiece"
        [class.active]="showViewer"
        [class.enter-next]="enterDir === 'next'"
@@ -57,6 +63,7 @@
       <div class="viewer-counter">{{ currentIndex + 1 }} / {{ pieces.length }}</div>
 
       <div class="viewer-article" #viewerArticle>
+        <div class="va-ambient-glow"></div>
         <div class="va-header">
           <span class="va-icon">{{ selectedPiece.icon }}</span>
           <div>
@@ -91,7 +98,6 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="gal-footer">
     <p>Universidad de Cartagena — IND169 · Actividad 2: Galería de Innovaciones Didácticas · Julio 2026</p>
   </footer>

@@ -1,28 +1,51 @@
 <div class="card-wrapper" id="card-{{ experience.id }}"
      [class.visible]="isVisible"
+     [class.hovering]="isHovering"
+     [class.clicked]="isClicked"
      [class.theme-space]="experience.theme === 'space'"
      [class.theme-puzzle]="experience.theme === 'puzzle'"
      [class.theme-game]="experience.theme === 'game'"
+     [class.theme-gear]="experience.theme === 'gear'"
      (mousemove)="onMouseMove($event)"
      (mouseenter)="onMouseEnter()"
      (mouseleave)="onMouseLeave()"
-     (click)="navigate()">
+     (click)="onClick()">
 
   <div class="card-inner"
-       [style.transform]="isHovering ? 'rotateY(' + (mouseX * 10) + 'deg) rotateX(' + (-mouseY * 10) + 'deg)' : ''">
+       [style.transform]="isHovering ? 'rotateY(' + (mouseX * 15) + 'deg) rotateX(' + (-mouseY * 15) + 'deg) translateZ(20px)' : ''">
+
+    <div class="card-border-glow"
+         [style.--gx]="mousePX * 100 + '%'"
+         [style.--gy]="mousePY * 100 + '%'">
+    </div>
 
     <div class="card-front" [style.--card-color]="experience.color" [style.--card-grad]="experience.gradient">
 
       <div class="theme-bg">
         <div class="star" *ngFor="let s of stars" [style.--s]="s"></div>
+        <div class="comet" *ngFor="let c of comets" [style.--c]="c"></div>
         <div class="orbit-ring" *ngFor="let r of [1,2,3]" [style.--r]="r"></div>
+        <div class="nebula" *ngIf="experience.theme === 'space'"></div>
         <div class="dot" *ngFor="let d of dots" [style.--d]="d"></div>
+        <div class="floater" *ngFor="let f of floaters" [style.--f]="f"></div>
         <div class="grid-line" *ngFor="let g of [1,2,3,4]"></div>
+        <div class="connector" *ngFor="let n of [1,2,3]" [style.--n]="n"></div>
         <div class="pixel" *ngFor="let p of pixels" [style.--p]="p"></div>
+        <div class="spark" *ngFor="let s of sparks" [style.--sp]="s"></div>
         <div class="scanline"></div>
+        <div class="crt-overlay"></div>
+        <div class="gear" *ngFor="let g of gears" [style.--g]="g"></div>
+        <div class="gear-tooth" *ngFor="let t of [1,2,3,4,5,6]" [style.--t]="t"></div>
+        <div class="energy-line" *ngFor="let e of energy" [style.--e]="e"></div>
+        <div class="energy-node" *ngFor="let n of [1,2,3,4]" [style.--en]="n"></div>
       </div>
 
-      <div class="card-glow" [style.--card-color]="experience.color"></div>
+      <div class="card-glow" [style.--card-color]="experience.color"
+           [style.transform]="glowTransform"></div>
+      <div class="card-mouse-glow" [style.--card-color]="experience.color"
+           [style.left]="mousePX * 100 + '%'"
+           [style.top]="mousePY * 100 + '%'">
+      </div>
       <div class="card-badge">{{ experience.methodology }}</div>
       <div class="card-icon">{{ experience.icon }}</div>
       <h3 class="card-title">{{ experience.title }}</h3>
@@ -42,6 +65,9 @@
 
     <div class="card-back" [style.--card-color]="experience.color" [style.--card-grad]="experience.gradient">
       <div class="back-glow" [style.--card-color]="experience.color"></div>
+      <div class="back-particles">
+        <span class="bp" *ngFor="let b of [1,2,3,4,5,6]" [style.--b]="b"></span>
+      </div>
       <h4 class="back-title">✦ Resultados destacados</h4>
       <ul class="back-list">
         <li *ngFor="let r of experience.results">
@@ -50,8 +76,12 @@
         </li>
       </ul>
       <div class="back-cta">
-        <span>Ver galería completa →</span>
+        <span class="cta-text">Ver galería completa</span>
+        <span class="cta-arrow">→</span>
       </div>
     </div>
   </div>
+
+  <div class="card-ripple" *ngIf="isClicked"
+       [style.--card-color]="experience.color"></div>
 </div>

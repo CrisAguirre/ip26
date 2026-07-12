@@ -24,6 +24,10 @@ export class GalleryListComponent {
     return new Set(origins.map(o => o.split('(')[0].trim())).size;
   }
 
+  getTotalImpact(): number {
+    return this.experiences.reduce((sum, e) => sum + e.results.length, 0);
+  }
+
   getUniqueMethods(): number {
     return new Set(this.experiences.map(e => e.methodology)).size;
   }

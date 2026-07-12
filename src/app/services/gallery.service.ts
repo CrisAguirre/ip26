@@ -90,6 +90,35 @@ export class GalleryService {
       icon: '🎮',
       theme: 'game',
       gradient: 'linear-gradient(145deg, #022c22, #064e3b)'
+    },
+    {
+      id: 4,
+      title: 'InnGenius — Investigación',
+      origin: 'Colombia (Bogotá) — Marco Teórico',
+      scope: 'Fundamentos Pedagógicos',
+      methodology: 'Design Thinking + Conectivismo',
+      summary: 'Profundización en los fundamentos teóricos de InnGenius: pensamiento creativo, Design Thinking, conectivismo y TIC como ejes de una metodología educativa colombiana con impacto global.',
+      fullDescription: 'Esta investigación explora los pilares teóricos que sostienen InnGenius: el pensamiento creativo como habilidad innata y potenciable (Menchen, 2001; PISA 2022), el Design Thinking como metodología activa estructurada en 5 fases (Brown, 2019), el conectivismo como teoría de aprendizaje en red (Siemens, 2006), y la integración estratégica de TIC para potenciar cada etapa del proceso. Se analiza cómo estos fundamentos se articulan para formar estudiantes creativos, críticos y preparados para los desafíos del siglo XXI.',
+      results: [
+        'Fundamentación teórica sólida: pensamiento creativo + Design Thinking + conectivismo',
+        'Metodología colombiana que compite globalmente en 6 países',
+        'TIC integradas en cada fase del proceso de aprendizaje',
+        'Modelo escalable de preescolar a bachillerato'
+      ],
+      keySuccess: [
+        'Creatividad como habilidad innata y potenciable en todos los estudiantes',
+        'Design Thinking transversal desde etapas tempranas',
+        'Conectivismo: aprendizaje en red más allá del aula',
+        'TIC como medios de construcción y distribución del conocimiento'
+      ],
+      institution: 'Colegio Santa Francisca Romana / Red Cognita',
+      year: '2021 - 2025',
+      reference: 'Gutiérrez, L. (2023). Creatividad e innovación. Revista UCV HACER.',
+      color: '#8b5cf6',
+      colorSecondary: '#06b6d4',
+      icon: '⚙️',
+      theme: 'gear',
+      gradient: 'linear-gradient(145deg, #0f0f1e, #1e1040, #0f172a)'
     }
   ];
 
