@@ -1358,7 +1358,7 @@
   padding: 2rem;
   border-top: 1px solid rgba(255,255,255,0.02);
 }
-.gal-footer p { font-size: 0.7rem; color: rgba(71,85,105,0.4); margin: 0; }
+.gal-footer p { font-size: 0.85rem; color: rgba(148,163,184,0.85); margin: 0; line-height: 1.6; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
@@ -1390,7 +1390,7 @@
   .gal-meta { font-size: 0.68rem; }
   .gal-count { font-size: 0.6rem; padding: 0.2rem 0.7rem; }
   .gal-footer { padding: 1.5rem 1rem; }
-  .gal-footer p { font-size: 0.6rem; }
+  .gal-footer p { font-size: 0.75rem; }
   .ambient-glow { width: 300px; height: 300px; }
   .gp-media { height: 90px; }
   .gp-icon { font-size: 2.2rem; }
