@@ -1,7 +1,7 @@
 # LIDER de Sesión — Galería de Innovaciones Didácticas
 
 > **Fecha:** Julio 2026  
-> **Curso:** IND169 — Actividad 2  
+> **Curso:**  — Actividad 2  
 > **Stack:** Angular 16 · TypeScript · CSS Animations · Tesseract OCR  
 > **Proyecto:** `C:\Users\USUARIO\Desktop\IP26\ip26`
 

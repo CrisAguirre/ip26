@@ -1,10 +1,7 @@
-<div class="gallery-page" [class.visible]="isVisible"
-     [class.theme-space]="experience.theme === 'space'"
-     [class.theme-puzzle]="experience.theme === 'puzzle'"
-     [class.theme-game]="experience.theme === 'game'"
-     [class.theme-gear]="experience.theme === 'gear'"
-     [style.--accent]="experience.color"
-     [style.--accent-sec]="experience.colorSecondary">
+<div class="gallery-page" [class.visible]="isVisible" [class.theme-space]="experience.theme === 'space'"
+  [class.theme-puzzle]="experience.theme === 'puzzle'" [class.theme-game]="experience.theme === 'game'"
+  [style.--accent]="experience.color"
+  [style.--accent-sec]="experience.colorSecondary">
 
   <header class="gal-header">
     <button class="gal-back" (click)="goBack()">← Galería principal</button>
@@ -24,10 +21,8 @@
 
   <main class="gal-body">
     <div class="gal-grid">
-      <article class="gal-piece" *ngFor="let piece of pieces; let i = index"
-               [style.--i]="i"
-               [style.--piece-color]="getPieceColor(i)"
-               (click)="openPiece(piece, i)">
+      <article class="gal-piece" *ngFor="let piece of pieces; let i = index" [style.--i]="i"
+        [style.--piece-color]="getPieceColor(i)" (click)="openPiece(piece, i)">
         <div class="gp-border-glow"></div>
 
         <!-- Per-piece figures background -->
@@ -50,12 +45,7 @@
           <div class="gp-fig gp-heart" *ngIf="experience.theme === 'game' && i % 3 === 2"></div>
           <div class="gp-fig gp-sword" *ngIf="experience.theme === 'game' && i % 2 === 0"></div>
           <div class="gp-fig gp-shield" *ngIf="experience.theme === 'game' && i % 2 === 1"></div>
-          <!-- GEAR figures -->
-          <div class="gp-fig gp-bulb" *ngIf="experience.theme === 'gear' && i % 2 === 0"></div>
-          <div class="gp-fig gp-node" *ngIf="experience.theme === 'gear' && i % 2 === 1"></div>
-          <div class="gp-fig gp-dna" *ngIf="experience.theme === 'gear' && i % 3 === 0"></div>
-          <div class="gp-fig gp-atom" *ngIf="experience.theme === 'gear' && i % 3 === 1"></div>
-          <div class="gp-fig gp-book" *ngIf="experience.theme === 'gear' && i % 3 === 2"></div>
+
         </div>
 
         <div class="gp-media">
@@ -70,7 +60,7 @@
           <div class="gp-media-waves" *ngIf="experience.theme === 'space'"></div>
           <div class="gp-media-grid" *ngIf="experience.theme === 'puzzle'"></div>
           <div class="gp-media-scan" *ngIf="experience.theme === 'game'"></div>
-          <div class="gp-media-pulse" *ngIf="experience.theme === 'gear'"></div>
+
         </div>
 
         <div class="gp-body">
@@ -87,10 +77,8 @@
     </div>
   </main>
 
-  <div class="gal-viewer" *ngIf="showViewer && selectedPiece"
-       [class.active]="showViewer"
-       [class.enter-next]="enterDir === 'next'"
-       [class.enter-prev]="enterDir === 'prev'">
+  <div class="gal-viewer" *ngIf="showViewer && selectedPiece" [class.active]="showViewer"
+    [class.enter-next]="enterDir === 'next'" [class.enter-prev]="enterDir === 'prev'">
 
     <div class="viewer-backdrop" (click)="closeViewer()"></div>
     <div class="viewer-bg-figures">
@@ -113,12 +101,13 @@
           <div class="va-nebula" *ngIf="experience.theme === 'space'"></div>
           <div class="va-circuit" *ngIf="experience.theme === 'puzzle'"></div>
           <div class="va-crt" *ngIf="experience.theme === 'game'"></div>
-          <div class="va-mech" *ngIf="experience.theme === 'gear'"></div>
+
         </div>
         <div class="va-header">
           <span class="va-icon" [style.--anim-delay]="'0.1s'">{{ selectedPiece.icon }}</span>
           <div>
-            <span class="va-suptitle" [style.--anim-delay]="'0.2s'">Pieza {{ currentIndex + 1 }} de {{ pieces.length }}</span>
+            <span class="va-suptitle" [style.--anim-delay]="'0.2s'">Pieza {{ currentIndex + 1 }} de {{ pieces.length
+              }}</span>
             <h2 class="va-title" [style.--anim-delay]="'0.3s'">
               <span class="va-title-text" [style.--anim-delay]="'0.3s'">{{ selectedPiece.title }}</span>
             </h2>
@@ -128,109 +117,209 @@
         <div class="va-divider" [style.--anim-delay]="'0.6s'"></div>
         <div class="va-content" [style.--anim-delay]="'0.7s'">
           <div class="va-content-body">
-            <p class="va-content-text" [style.--anim-delay]="'0.7s'">{{ selectedPiece.content }}</p>
+            <div class="va-content-text" [style.--anim-delay]="'0.7s'" [innerHTML]="selectedPiece.content"></div>
           </div>
           <div class="va-content-figure" [style.--anim-delay]="'0.7s'">
             <div class="va-cf-inner" [class]="getContentFigureClass(currentIndex)">
               <div class="cf-glow"></div>
               <div [ngSwitch]="getContentFigureClass(currentIndex)">
 
-              <!-- ═══════════ INNGENIUS (space) ═══════════ -->
-              <ng-container *ngSwitchCase="'fig-inn-school'">
-                <div class="cf-inn-school"><div class="cf-roof"></div><div class="cf-wall"><div class="cf-door"></div><div class="cf-window"></div></div><div class="cf-star-orb"><span></span><span></span><span></span></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inn-brain'">
-                <div class="cf-inn-brain"><div class="cf-constellation"><span></span><span></span><span></span><span></span><span></span></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inn-rocket'">
-                <div class="cf-inn-rocket"><div class="cf-rkt-body"></div><div class="cf-rkt-fin-l"></div><div class="cf-rkt-fin-r"></div><div class="cf-rkt-window"></div><div class="cf-rkt-flame"></div><div class="cf-rkt-stage s1"></div><div class="cf-rkt-stage s2"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inn-satellite'">
-                <div class="cf-inn-satellite"><div class="cf-sat-body"></div><div class="cf-sat-panel-l"></div><div class="cf-sat-panel-r"></div><div class="cf-sat-antenna"></div><div class="cf-sat-signal"><span></span><span></span><span></span></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inn-star'">
-                <div class="cf-inn-star"><div class="cf-supernova"><div class="cf-sn-core"></div><div class="cf-sn-ring r1"></div><div class="cf-sn-ring r2"></div><div class="cf-sn-ring r3"></div></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inn-globe'">
-                <div class="cf-inn-globe"><div class="cf-gl-earth"><div class="cf-gl-cont"></div></div><div class="cf-gl-orb o1"><span></span></div><div class="cf-gl-orb o2"><span></span></div><div class="cf-gl-orb o3"><span></span></div><div class="cf-gl-orb o4"><span></span></div><div class="cf-gl-orb o5"><span></span></div><div class="cf-gl-orb o6"><span></span></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inn-timeline'">
-                <div class="cf-inn-timeline"><div class="cf-tl-line"></div><div class="cf-tl-node n1"><span>21</span></div><div class="cf-tl-node n2"><span>22</span></div><div class="cf-tl-node n3"><span>23</span></div><div class="cf-tl-node n4"><span>24</span></div><div class="cf-tl-node n5"><span>25</span></div></div>
-              </ng-container>
+                <!-- ═══════════ INNGENIUS (space) ═══════════ -->
+                <ng-container *ngSwitchCase="'fig-inn-school'">
+                  <div class="cf-inn-school">
+                    <div class="cf-roof"></div>
+                    <div class="cf-wall">
+                      <div class="cf-door"></div>
+                      <div class="cf-window"></div>
+                    </div>
+                    <div class="cf-star-orb"><span></span><span></span><span></span></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-inn-brain'">
+                  <div class="cf-inn-brain">
+                    <div class="cf-constellation"><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-inn-rocket'">
+                  <div class="cf-inn-rocket">
+                    <div class="cf-rkt-body"></div>
+                    <div class="cf-rkt-fin-l"></div>
+                    <div class="cf-rkt-fin-r"></div>
+                    <div class="cf-rkt-window"></div>
+                    <div class="cf-rkt-flame"></div>
+                    <div class="cf-rkt-stage s1"></div>
+                    <div class="cf-rkt-stage s2"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-inn-satellite'">
+                  <div class="cf-inn-satellite">
+                    <div class="cf-sat-body"></div>
+                    <div class="cf-sat-panel-l"></div>
+                    <div class="cf-sat-panel-r"></div>
+                    <div class="cf-sat-antenna"></div>
+                    <div class="cf-sat-signal"><span></span><span></span><span></span></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-inn-star'">
+                  <div class="cf-inn-star">
+                    <div class="cf-supernova">
+                      <div class="cf-sn-core"></div>
+                      <div class="cf-sn-ring r1"></div>
+                      <div class="cf-sn-ring r2"></div>
+                      <div class="cf-sn-ring r3"></div>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-inn-globe'">
+                  <div class="cf-inn-globe">
+                    <div class="cf-gl-earth">
+                      <div class="cf-gl-cont"></div>
+                    </div>
+                    <div class="cf-gl-orb o1"><span></span></div>
+                    <div class="cf-gl-orb o2"><span></span></div>
+                    <div class="cf-gl-orb o3"><span></span></div>
+                    <div class="cf-gl-orb o4"><span></span></div>
+                    <div class="cf-gl-orb o5"><span></span></div>
+                    <div class="cf-gl-orb o6"><span></span></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-inn-timeline'">
+                  <div class="cf-inn-timeline">
+                    <div class="cf-tl-line"></div>
+                    <div class="cf-tl-node n1"><span>21</span></div>
+                    <div class="cf-tl-node n2"><span>22</span></div>
+                    <div class="cf-tl-node n3"><span>23</span></div>
+                    <div class="cf-tl-node n4"><span>24</span></div>
+                    <div class="cf-tl-node n5"><span>25</span></div>
+                  </div>
+                </ng-container>
 
-              <!-- ═══════════ BIOBOTS (puzzle) ═══════════ -->
-              <ng-container *ngSwitchCase="'fig-bio-house'">
-                <div class="cf-bio-house"><div class="cf-bh-roof"></div><div class="cf-bh-wall"><div class="cf-bh-door"></div><div class="cf-bh-puzzle"></div></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-bio-puzzle-brain'">
-                <div class="cf-bio-puzzle-brain"><div class="cf-pb-piece p1"></div><div class="cf-pb-piece p2"></div><div class="cf-pb-piece p3"></div><div class="cf-pb-piece p4"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-bio-board'">
-                <div class="cf-bio-board"><div class="cf-bd-path"><span></span><span></span><span></span><span></span><span></span></div><div class="cf-bd-token"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-bio-pc'">
-                <div class="cf-bio-pc"><div class="cf-bpc-screen"><div class="cf-bpc-pieces"><span></span><span></span><span></span><span></span></div></div><div class="cf-bpc-base"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-bio-trophy'">
-                <div class="cf-bio-trophy"><div class="cf-bt-cup"></div><div class="cf-bt-base"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-bio-medal'">
-                <div class="cf-bio-medal"><div class="cf-bm-circle"></div><div class="cf-bm-ribbon-l"></div><div class="cf-bm-ribbon-r"></div><div class="cf-bm-star"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-bio-graph'">
-                <div class="cf-bio-graph"><div class="cf-bg-bar b1"></div><div class="cf-bg-bar b2"></div><div class="cf-bg-bar b3"></div><div class="cf-bg-bar b4"></div><div class="cf-bg-pz p1"></div><div class="cf-bg-pz p2"></div></div>
-              </ng-container>
+                <!-- ═══════════ BIOBOTS (puzzle) ═══════════ -->
+                <ng-container *ngSwitchCase="'fig-bio-house'">
+                  <div class="cf-bio-house">
+                    <div class="cf-bh-roof"></div>
+                    <div class="cf-bh-wall">
+                      <div class="cf-bh-door"></div>
+                      <div class="cf-bh-puzzle"></div>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-bio-puzzle-brain'">
+                  <div class="cf-bio-puzzle-brain">
+                    <div class="cf-pb-piece p1"></div>
+                    <div class="cf-pb-piece p2"></div>
+                    <div class="cf-pb-piece p3"></div>
+                    <div class="cf-pb-piece p4"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-bio-board'">
+                  <div class="cf-bio-board">
+                    <div class="cf-bd-path"><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="cf-bd-token"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-bio-pc'">
+                  <div class="cf-bio-pc">
+                    <div class="cf-bpc-screen">
+                      <div class="cf-bpc-pieces"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="cf-bpc-base"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-bio-trophy'">
+                  <div class="cf-bio-trophy">
+                    <div class="cf-bt-cup"></div>
+                    <div class="cf-bt-base"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-bio-medal'">
+                  <div class="cf-bio-medal">
+                    <div class="cf-bm-circle"></div>
+                    <div class="cf-bm-ribbon-l"></div>
+                    <div class="cf-bm-ribbon-r"></div>
+                    <div class="cf-bm-star"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-bio-graph'">
+                  <div class="cf-bio-graph">
+                    <div class="cf-bg-bar b1"></div>
+                    <div class="cf-bg-bar b2"></div>
+                    <div class="cf-bg-bar b3"></div>
+                    <div class="cf-bg-bar b4"></div>
+                    <div class="cf-bg-pz p1"></div>
+                    <div class="cf-bg-pz p2"></div>
+                  </div>
+                </ng-container>
 
-              <!-- ═══════════ EUTOPÍA (game) ═══════════ -->
-              <ng-container *ngSwitchCase="'fig-eut-school'">
-                <div class="cf-eut-school"><div class="cf-es-pixel-roof"><span></span><span></span><span></span><span></span><span></span></div><div class="cf-es-pixel-body"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-eut-flow'">
-                <div class="cf-eut-flow"><div class="cf-ef-meter"><div class="cf-ef-fill"></div></div><div class="cf-ef-needle"></div><div class="cf-ef-mark m1"></div><div class="cf-ef-mark m2"></div><div class="cf-ef-mark m3"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-eut-village'">
-                <div class="cf-eut-village"><div class="cf-ev-house h1"></div><div class="cf-ev-house h2"></div><div class="cf-ev-house h3"></div><div class="cf-ev-tree"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-eut-cloud'">
-                <div class="cf-eut-cloud"><div class="cf-ec-cloud"></div><div class="cf-ec-data d1"></div><div class="cf-ec-data d2"></div><div class="cf-ec-data d3"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-eut-crown'">
-                <div class="cf-eut-crown"><div class="cf-ec-crown"></div><div class="cf-ec-gem"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-eut-levelup'">
-                <div class="cf-eut-levelup"><div class="cf-el-bar"></div><div class="cf-el-fill"></div><div class="cf-el-star s1"></div><div class="cf-el-star s2"></div><div class="cf-el-star s3"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-eut-chest'">
-                <div class="cf-eut-chest"><div class="cf-ec-box"></div><div class="cf-ec-lid"></div><div class="cf-ec-coin c1"></div><div class="cf-ec-coin c2"></div><div class="cf-ec-coin c3"></div></div>
-              </ng-container>
+                <!-- ═══════════ EUTOPÍA (game) ═══════════ -->
+                <ng-container *ngSwitchCase="'fig-eut-school'">
+                  <div class="cf-eut-school">
+                    <div class="cf-es-pixel-roof"><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="cf-es-pixel-body">
+                      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-eut-flow'">
+                  <div class="cf-eut-flow">
+                    <div class="cf-ef-meter">
+                      <div class="cf-ef-fill"></div>
+                    </div>
+                    <div class="cf-ef-needle"></div>
+                    <div class="cf-ef-mark m1"></div>
+                    <div class="cf-ef-mark m2"></div>
+                    <div class="cf-ef-mark m3"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-eut-village'">
+                  <div class="cf-eut-village">
+                    <div class="cf-ev-house h1"></div>
+                    <div class="cf-ev-house h2"></div>
+                    <div class="cf-ev-house h3"></div>
+                    <div class="cf-ev-tree"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-eut-cloud'">
+                  <div class="cf-eut-cloud">
+                    <div class="cf-ec-cloud"></div>
+                    <div class="cf-ec-data d1"></div>
+                    <div class="cf-ec-data d2"></div>
+                    <div class="cf-ec-data d3"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-eut-crown'">
+                  <div class="cf-eut-crown">
+                    <div class="cf-ec-crown"></div>
+                    <div class="cf-ec-gem"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-eut-levelup'">
+                  <div class="cf-eut-levelup">
+                    <div class="cf-el-bar"></div>
+                    <div class="cf-el-fill"></div>
+                    <div class="cf-el-star s1"></div>
+                    <div class="cf-el-star s2"></div>
+                    <div class="cf-el-star s3"></div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'fig-eut-chest'">
+                  <div class="cf-eut-chest">
+                    <div class="cf-ec-box"></div>
+                    <div class="cf-ec-lid"></div>
+                    <div class="cf-ec-coin c1"></div>
+                    <div class="cf-ec-coin c2"></div>
+                    <div class="cf-ec-coin c3"></div>
+                  </div>
+                </ng-container>
 
-              <!-- ═══════════ INNGENIUS — INVESTIGACIÓN (gear) ═══════════ -->
-              <ng-container *ngSwitchCase="'fig-inv-brain-gear'">
-                <div class="cf-inv-brain-gear"><div class="cf-bg-lobe l"></div><div class="cf-bg-lobe r"></div><div class="cf-bg-gear"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inv-diamond'">
-                <div class="cf-inv-diamond"><div class="cf-di-diamond"></div><div class="cf-di-left"><span></span><span></span></div><div class="cf-di-right"><span></span><span></span></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inv-cogs'">
-                <div class="cf-inv-cogs"><div class="cf-co-gear g1"></div><div class="cf-co-gear g2"></div><div class="cf-co-gear g3"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inv-loop'">
-                <div class="cf-inv-loop"><div class="cf-lp-circle"></div><div class="cf-lp-arrow a1"></div><div class="cf-lp-arrow a2"></div><div class="cf-lp-gear"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inv-network'">
-                <div class="cf-inv-network"><div class="cf-nw-node n1"></div><div class="cf-nw-node n2"></div><div class="cf-nw-node n3"></div><div class="cf-nw-node n4"></div><div class="cf-nw-node n5"></div><div class="cf-nw-line l1"></div><div class="cf-nw-line l2"></div><div class="cf-nw-line l3"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inv-system'">
-                <div class="cf-inv-system"><div class="cf-sy-gear g1"></div><div class="cf-sy-gear g2"></div><div class="cf-sy-gear g3"></div><div class="cf-sy-gear g4"></div></div>
-              </ng-container>
-              <ng-container *ngSwitchCase="'fig-inv-book'">
-                <div class="cf-inv-book"><div class="cf-bk-cover"></div><div class="cf-bk-gear"></div><div class="cf-bk-page"></div></div>
-              </ng-container>
-
-              <!-- fallback generic star -->
-              <ng-container *ngSwitchDefault>
-                <div class="cf-fallback-star"><div class="cf-st-body"></div></div>
-              </ng-container>
+                <!-- fallback generic star -->
+                <ng-container *ngSwitchDefault>
+                  <div class="cf-fallback-star">
+                    <div class="cf-st-body"></div>
+                  </div>
+                </ng-container>
               </div>
             </div>
           </div>
@@ -238,19 +327,18 @@
         <div class="va-tags" *ngIf="selectedPiece.highlights" [style.--anim-delay]="'0.9s'">
           <h3 class="va-tags-title" [style.--anim-delay]="'0.9s'">✦ Palabras clave</h3>
           <div class="va-tag-list">
-            <span class="va-tag" *ngFor="let h of selectedPiece.highlights; let ti = index" [style.--anim-delay]="'calc(1s + ' + ti + ' * 0.12s)'">{{ h }}</span>
+            <span class="va-tag" *ngFor="let h of selectedPiece.highlights; let ti = index"
+              [style.--anim-delay]="'calc(1s + ' + ti + ' * 0.12s)'">{{ h }}</span>
           </div>
         </div>
       </div>
 
       <nav class="viewer-nav">
-        <button class="vn-btn vn-prev" (click)="prevPiece()"
-                [class.disabled]="currentIndex === 0">
+        <button class="vn-btn vn-prev" (click)="prevPiece()" [class.disabled]="currentIndex === 0">
           <span class="vn-arrow">←</span>
           <span class="vn-label">Anterior</span>
         </button>
-        <button class="vn-btn vn-next" (click)="nextPiece()"
-                [class.disabled]="currentIndex === pieces.length - 1">
+        <button class="vn-btn vn-next" (click)="nextPiece()" [class.disabled]="currentIndex === pieces.length - 1">
           <span class="vn-label">Siguiente</span>
           <span class="vn-arrow">→</span>
         </button>
@@ -259,6 +347,6 @@
   </div>
 
   <footer class="gal-footer">
-    <p>Universidad de Cartagena — IND169 · Actividad 2: Galería de Innovaciones Didácticas · Julio 2026</p>
+    <p>Universidad de Cartagena — · Actividad 2: Galería de Innovaciones Didácticas · Julio 2026</p>
   </footer>
 </div>

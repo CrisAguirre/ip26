@@ -161,4 +161,4 @@ Magisnet. (2025). *Eutopía: el videojuego educativo que arrasa en más de 40 co
 
 ---
 
-*Documentación generada el 10 de julio de 2026 para la Actividad 2: Galería de Innovaciones Didácticas — IND169.*
+*Documentación generada el 10 de julio de 2026 para la Actividad 2: Galería de Innovaciones Didácticas.*

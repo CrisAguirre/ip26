@@ -10,23 +10,23 @@ export class GalleryService {
       origin: 'Colombia (Bogotá) → 6 países',
       scope: 'Nacional e Internacional',
       methodology: 'Design Thinking',
-      summary: 'Metodología educativa colombiana basada en Design Thinking que nació en el Colegio Santa Francisca Romana de Bogotá y fue exportada a más de 100 instituciones en Brasil, Reino Unido, Dubái, España, India y México.',
-      fullDescription: 'InnGenius es una metodología educativa que abarca desde preescolar hasta bachillerato a través de etapas lúdicas y reflexivas que culminan en presentaciones de proyectos con impacto social. Su enfoque flexible permite que cada comunidad educativa adapte la metodología a su contexto cultural, manteniendo los principios fundamentales. El método se basa en Design Thinking e integra pensamiento crítico, creatividad y liderazgo como ejes transversales del aprendizaje.',
+      summary: 'Metodología educativa colombiana basada en Design Thinking y pensamiento creativo (Menchen, 2001; PISA 2022), con conectivismo (Siemens, 2006) como eje TIC. Consolidada como pilar cultural e institucional con proyección global.',
+      fullDescription: 'InnGenius se fundamenta en la teoría del pensamiento creativo, combinada con Design Thinking. El estudiante es protagonista activo; el docente actúa como facilitador. Promueve metacognición, trabajo colaborativo y conexión entre conocimiento académico y problemas reales. La metodología se estructura en 5 fases —empatizar, definir, idear, prototipar, evaluar— que integran TIC desde el enfoque conectivista para formar estudiantes preparados para un futuro incierto lleno de desafíos y oportunidades.',
       results: [
-        'Resultados sobresalientes en pensamiento crítico, creatividad y liderazgo',
-        'Implementada en más de 100 instituciones de la red Cognita mundial',
-        'Presencia en Brasil, Reino Unido, Dubái, España, India y México',
-        'Lanzamiento del InnGenius Challenge Chile en 2025'
+        'Pensamiento creativo como habilidad innata y potenciable (Menchen, 2001; PISA 2022)',
+        'Design Thinking en 5 fases: aprendizaje significativo, colaborativo y orientado a problemas reales',
+        'Conectivismo + TIC integradas en cada etapa del proceso educativo',
+        'Metodología colombiana consolidada como pilar de cultura institucional'
       ],
       keySuccess: [
-        'Enfoque flexible y adaptable a cada contexto cultural',
-        'Formación docente acompañada y continua',
-        'Basado en retos reales con impacto social',
-        'Integración curricular transversal desde preescolar hasta bachillerato'
+        'Creatividad innata potenciable: fundamento teórico sólido desde Menchen y PISA 2022',
+        'Design Thinking transversal: empatizar, definir, idear, prototipar y evaluar',
+        'TIC como medios que facilitan construcción, conexión y distribución del conocimiento',
+        'Estudiantes equipados para brillar en un mundo de creatividad e innovación'
       ],
-      institution: 'Colegio Santa Francisca Romana / Red Cognita',
-      year: '2023 - 2025',
-      reference: 'Canal Trece. (2025). Colombia exporta metodología educativa innovadora a seis países.',
+      institution: 'Colegio Santa Francisca Romana',
+      year: '2021 - 2025',
+      reference: 'Colegio Santa Francisca Romana. (2026). InnGenius. https://csfr.edu.co/es/curriculos-internacionales/inngenius/',
       color: '#6366f1',
       colorSecondary: '#a855f7',
       icon: '🚀',
@@ -91,35 +91,7 @@ export class GalleryService {
       theme: 'game',
       gradient: 'linear-gradient(145deg, #022c22, #064e3b)'
     },
-    {
-      id: 4,
-      title: 'InnGenius — Investigación',
-      origin: 'Colombia (Bogotá) — Marco Teórico',
-      scope: 'Fundamentos Pedagógicos',
-      methodology: 'Design Thinking + Conectivismo',
-      summary: 'Profundización en los fundamentos teóricos de InnGenius: pensamiento creativo (Menchen, 2001; PISA 2022), Design Thinking en 5 fases (Brown, 2019), conectivismo (Siemens, 2006) y la integración estratégica de TIC para potenciar el aprendizaje.',
-      fullDescription: 'Esta investigación explora los pilares teóricos que sostienen InnGenius: el pensamiento creativo como habilidad innata y potenciable, el Design Thinking como metodología activa estructurada en 5 fases que promueve la resolución creativa de problemas, el conectivismo y el uso estratégico de las TIC en cada etapa del proceso. Se analiza cómo la creatividad, el trabajo colaborativo y la integración de tecnologías digitales se articulan para formar estudiantes preparados para un futuro incierto lleno de desafíos y oportunidades.',
-      results: [
-        'Creatividad innata potenciable: fundamento teórico sólido desde Menchen y PISA 2022',
-        'Design Thinking en 5 fases: aprendizaje significativo, colaborativo y orientado a problemas reales',
-        'Conectivismo + TIC integradas en cada etapa del proceso educativo',
-        'Metodología colombiana consolidada como pilar de cultura institucional'
-      ],
-      keySuccess: [
-        'Pensamiento creativo como habilidad natural y básica de la mente humana',
-        'Design Thinking transversal: empatizar, definir, idear, prototipar y evaluar',
-        'TIC como medios que facilitan construcción, conexión y distribución del conocimiento',
-        'Estudiantes equipados para brillar en un mundo de creatividad e innovación'
-      ],
-      institution: 'Colegio Santa Francisca Romana / Red Cognita',
-      year: '2021 - 2025',
-      reference: 'Colegio Santa Francisca Romana. (2026). InnGenius. https://csfr.edu.co/es/curriculos-internacionales/inngenius/',
-      color: '#8b5cf6',
-      colorSecondary: '#06b6d4',
-      icon: '⚙️',
-      theme: 'gear',
-      gradient: 'linear-gradient(145deg, #0f0f1e, #1e1040, #0f172a)'
-    }
+
   ];
 
   getAll(): Experience[] {

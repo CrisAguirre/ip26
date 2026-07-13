@@ -747,8 +747,32 @@
 .va-content-text {
   margin: 0;
   overflow: hidden;
+  text-align: justify;
   animation: va-text-reveal 0.8s ease-out both;
   animation-delay: var(--anim-delay, 0s);
+}
+.va-content-text p {
+  margin: 0 0 1em 0;
+  line-height: 1.7;
+}
+.va-content-text p:last-child {
+  margin-bottom: 0;
+}
+.va-content-text ul {
+  margin: 0.5em 0 1em 0;
+  padding-left: 1.5em;
+  list-style: disc;
+}
+.va-content-text ul li {
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+.va-content-text ul li:last-child {
+  margin-bottom: 0;
+}
+.va-content-text strong {
+  color: var(--accent, #6366f1);
+  font-weight: 600;
 }
 @keyframes va-text-reveal {
   from { clip-path: inset(0 100% 0 0); opacity: 0; }

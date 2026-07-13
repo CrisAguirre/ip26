@@ -14,6 +14,6 @@ export interface Experience {
   color: string;
   colorSecondary: string;
   icon: string;
-  theme: 'space' | 'puzzle' | 'game' | 'gear';
+  theme: 'space' | 'puzzle' | 'game';
   gradient: string;
 }

@@ -1,4 +1,4 @@
-# ip26 — Galería de Innovaciones Didácticas (IND169 Actividad 2)
+# ip26 — Galería de Innovaciones Didácticas ( Actividad 2)
 
 ## Stack
 Angular 16 · TypeScript · CSS Animations · Tesseract OCR
@@ -15,8 +15,8 @@ npm run build
 ## Project Structure (relevant files)
 
 ### Core
-- `src/app/models/experience.model.ts` — Experience interface with theme union `'space'|'puzzle'|'game'|'gear'`
-- `src/app/services/gallery.service.ts` — 4 experiences: InnGenius (space), Biobots (puzzle), Eutopía (game), InnGenius—Investigación (gear)
+- `src/app/models/experience.model.ts` — Experience interface with theme union `'space'|'puzzle'|'game'`
+- `src/app/services/gallery.service.ts` — 3 experiences: InnGenius (space), Biobots (puzzle), Eutopía (game)
 - `src/app/app-routing.module.ts` — routes: `/` → GalleryList, `/experiencia/:id` → ExperienceDetail
 - `src/app/app.module.ts` — declares IntroComponent, GalleryListComponent, GalleryCardComponent, ExperienceDetailComponent
 
@@ -28,16 +28,15 @@ npm run build
 - `src/app/components/gallery-list/gallery-list.component.css` — `.featured` spans full-width, 3-column grid
 
 ### Experience Detail (piece gallery + modal viewer)
-- `src/app/components/experience-detail/experience-detail.component.ts` — `getGalleryPieces()` returns 7 pieces per experience keyed by `experience.title`; `getContentFigureClass(i)` returns 28 unique gallery+piece-specific figure names
+- `src/app/components/experience-detail/experience-detail.component.ts` — `getGalleryPieces()` returns 5 pieces for InnGenius, 7 for Biobots/Eutopía; `getContentFigureClass(i)` returns gallery+piece-specific figure names
 
   Figure mapping by gallery:
-  - InnGenius → `['fig-inn-school','fig-inn-brain','fig-inn-rocket','fig-inn-satellite','fig-inn-star','fig-inn-globe','fig-inn-timeline']`
+  - InnGenius → `['fig-inn-brain','fig-inn-rocket','fig-inn-satellite','fig-inn-star','fig-inn-globe']`
   - Biobots → `['fig-bio-house','fig-bio-puzzle-brain','fig-bio-board','fig-bio-pc','fig-bio-trophy','fig-bio-medal','fig-bio-graph']`
   - Eutopía → `['fig-eut-school','fig-eut-flow','fig-eut-village','fig-eut-cloud','fig-eut-crown','fig-eut-levelup','fig-eut-chest']`
-  - InnGenius—Investigación → `['fig-inv-brain-gear','fig-inv-diamond','fig-inv-cogs','fig-inv-loop','fig-inv-network','fig-inv-system','fig-inv-book']`
 
-- `src/app/components/experience-detail/experience-detail.component.html` — gal-piece grid (7 per gallery) + modal viewer with side-by-side text+figure layout (flexbox, figure on right)
-- `src/app/components/experience-detail/experience-detail.component.css` — all 28 figures with unique CSS drawings + animations
+- `src/app/components/experience-detail/experience-detail.component.html` — gal-piece grid (5-7 per gallery) + modal viewer with side-by-side text+figure layout (flexbox, figure on right)
+- `src/app/components/experience-detail/experience-detail.component.css` — 19 figures with unique CSS drawings + animations
 
 ## Key Design Decisions
 
@@ -52,27 +51,24 @@ npm run build
 - All figures are pure CSS (no external images) — clip-path, pseudo-elements, gradients, transforms, conic-gradient
 - Figures use `--accent` CSS custom property for theme color consistency
 - Card 3D tilt (15°), mouse-follow glow, border glow, click ripple
-- Each gallery has its own color scheme via CSS theme classes (`.theme-space`, `.theme-puzzle`, `.theme-game`, `.theme-gear`)
+- Each gallery has its own color scheme via CSS theme classes (`.theme-space`, `.theme-puzzle`, `.theme-game`)
 - Modal viewer backdrop: orbiting rings + floating particles
-- Theme-specific viewer backgrounds: nebula (space), circuit grid (puzzle), CRT scanline (game), mechanoid radial (gear)
+- Theme-specific viewer backgrounds: nebula (space), circuit grid (puzzle), CRT scanline (game)
 
-### Content Figures (28 unique)
+### Content Figures (19 unique)
 Each piece in each gallery has its own CSS-drawn figure with unique animation:
-- **InnGenius**: Rocket-school hybrid, constellation brain, multi-stage rocket, satellite, supernova, globe+6 orbiters, timeline nodes
+- **InnGenius**: Constellation brain, multi-stage rocket, satellite, supernova, globe+6 orbiters
 - **Biobots**: Puzzle-piece house, 4-piece brain puzzle, board game path, puzzle-screen monitor, trophy, medal+ribbon, graph+puzzle pieces
 - **Eutopía**: Pixel-art school, flow state meter, village buildings, cloud+data, crown, XP level-up bar, treasure chest+coins
-- **InnGenius—Investigación**: Brain+gear, double diamond, interlocking cogs, feedback loop+arrows, network nodes, gear system, book+gear
 
 ## Content Mapping
 
 ### InnGenius (theme: space, color: #6366f1)
-1. Contexto educativo — Bogotá, Colegio Santa Francisca Romana, 6 países
-2. Enfoque pedagógico — Aprendizaje experiencial + constructivismo + Ausubel + Design Thinking
-3. Metodología activa — Design Thinking 5 etapas (empatizar→testear)
-4. Uso de TIC — Plataformas colaborativas, adaptable a baja conectividad
-5. Aportes innovadores — Metodología colombiana global, InnGenius Challenge Chile
-6. Impacto global — 100+ instituciones, 50.000+ estudiantes
-7. Línea de tiempo — 2021→2025, de piloto a 6 países
+1. Enfoque pedagógico — Pensamiento creativo (Menchen 2001, Summo, PISA 2022), Design Thinking
+2. Metodología activa — Design Thinking 5 fases completas (empatizar→testear)
+3. Uso de las TIC — Conectivismo (Siemens 2006), TIC en cada fase del DT
+4. Aportes Innovadores — Pilar cultural institucional, metodología colombiana global K-12
+5. Bibliografía — 8 referencias (Brown, OCDE, Siemens, Sánchez-Cabrero, etc.)
 
 ### Biobots (theme: puzzle, color: #f59e0b)
 1. Contexto educativo — Zonas rurales Colombia, sin internet
@@ -92,25 +88,18 @@ Each piece in each gallery has its own CSS-drawn figure with unique animation:
 6. Crecimiento — 2022→2025, 5 a 40+ colegios, 300%
 7. Inversión — Lanzadera (Juan Roig), 500.000€+ acumulado
 
-### InnGenius — Investigación (theme: gear, color: #8b5cf6)
-1. Pensamiento Creativo — Menchen (2001), PISA 2022
-2. Design Thinking 1-2 — Empatizar + Definir
-3. Design Thinking 3-4 — Idear + Prototipar
-4. Design Thinking 5 — Evaluar/Testear, ciclo continuo
-5. Conectivismo y TIC — Siemens (2006), constructivismo
-6. Aportes Innovadores — Engranaje de innovación K-12
-7. Reflexión y Prospectiva — Docente facilitador, pensamiento divergente
+
 
 ## Session History
 - Initial scaffold: 3 galleries (InnGenius space, Biobots puzzle, Eutopía game)
-- Added 4th gallery "InnGenius — Investigación" (gear theme) from `textos.docx`
-- Added 'gear' to theme union type
-- Featured card layout (full width at top)
-- Per-theme CSS figures on cards (stars, comets, planets, puzzle pieces, gears, etc.)
+- Added 4th gallery "InnGenius — Investigación" (gear theme) from `textos.docx` (LATER REMOVED)
 - 7 gallery pieces per experience (28 total) with alternating per-piece figures
 - Modal viewer with theme backgrounds, floating rings, particles
-- Text animations (reveal, shine, staggered entrance)
-- 28 gallery-specific content figures with unique animations side-by-side with text
+- 28 gallery-specific content figures with unique animations
+- Font optimization disabled in angular.json for offline build support
+- Main InnGenius gallery: 7 pieces → 5 pieces based on 5 sections of INNGENIUS.docx (Enfoque, Metodología, TIC, Aportes, Bibliografía)
+- InnGenius — Investigación (gear theme) removed entirely — only 3 galleries remain
+- Figure mapping: InnGenius reduced to 5 figs, gear theme figures removed
 
 ## Report Generation
 - `crear-docx.ps1` in workspace root generates `informe-galerias-innovacion.docx` via Word COM

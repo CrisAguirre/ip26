@@ -1,6 +1,6 @@
 # Galería de Innovaciones Didácticas — Piezas Completas
 
-## IND169 · Actividad 2
+## Actividad 2
 
 ---
 
@@ -76,5 +76,5 @@ Eutopía automatiza la evaluación competencial sin perder rigor pedagógico, re
 
 ---
 
-*Documento generado para la Actividad 2 de IND169 — Universidad de Cartagena*
+*Documento generado para la Actividad 2 de  — Universidad de Cartagena*
 *Julio 2026*

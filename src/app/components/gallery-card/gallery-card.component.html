@@ -4,8 +4,7 @@
      [class.clicked]="isClicked"
      [class.theme-space]="experience.theme === 'space'"
      [class.theme-puzzle]="experience.theme === 'puzzle'"
-     [class.theme-game]="experience.theme === 'game'"
-     [class.theme-gear]="experience.theme === 'gear'"
+      [class.theme-game]="experience.theme === 'game'"
      (mousemove)="onMouseMove($event)"
      (mouseenter)="onMouseEnter()"
      (mouseleave)="onMouseLeave()"
@@ -47,12 +46,7 @@
           <span class="life-fill"></span>
         </div>
 
-        <div class="gear" *ngFor="let g of gears" [style.--g]="g"></div>
-        <div class="gear-tooth" *ngFor="let t of [1,2,3,4,5,6]" [style.--t]="t"></div>
-        <div class="energy-line" *ngFor="let e of energy" [style.--e]="e"></div>
-        <div class="energy-node" *ngFor="let n of nodes" [style.--en]="n"></div>
-        <div class="bulb" *ngFor="let b of bulbs" [style.--b]="b"></div>
-        <div class="network-line" *ngFor="let nl of [1,2,3]" [style.--nl]="nl"></div>
+
       </div>
 
       <div class="card-glow" [style.--card-color]="experience.color"
@@ -84,11 +78,7 @@
             <div class="trophy-handle-l"></div><div class="trophy-handle-r"></div>
             <div class="trophy-base"></div>
           </div>
-          <div class="cf-mechanism" *ngIf="experience.theme === 'gear'">
-            <div class="mech-gear-big"></div>
-            <div class="mech-gear-med"></div>
-            <div class="mech-gear-sml"></div>
-          </div>
+
         </div>
       </div>
 

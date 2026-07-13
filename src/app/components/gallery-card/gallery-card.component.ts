@@ -46,10 +46,7 @@ export class GalleryCardComponent {
   get coins() { return this.experience.theme === 'game' ? [1,2,3] : []; }
   get blocks() { return this.experience.theme === 'game' ? [1,2,3,4,5] : []; }
 
-  get gears() { return this.experience.theme === 'gear' ? [1,2,3,4,5,6] : []; }
-  get energy() { return this.experience.theme === 'gear' ? [1,2,3,4,5,6] : []; }
-  get bulbs() { return this.experience.theme === 'gear' ? [1,2,3] : []; }
-  get nodes() { return this.experience.theme === 'gear' ? [1,2,3,4,5,6,7,8] : []; }
+
 
   get glowTransform(): string {
     if (!this.isHovering) return '';

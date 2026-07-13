@@ -13,7 +13,7 @@ $sel.TypeText("Galeria de Innovaciones Didacticas")
 $sel.TypeParagraph()
 $sel.Font.Size = 14
 $sel.Font.Bold = $false
-$sel.TypeText("IND169 - Actividad 2")
+$sel.TypeText(" - Actividad 2")
 $sel.TypeParagraph()
 $sel.Font.Size = 11
 $sel.TypeText("Universidad de Cartagena - Julio 2026")
